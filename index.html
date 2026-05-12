@@ -8,10 +8,10 @@
 </head>
 <body>
 
-  <!-- FLICKER OVERLAY -->
   <div id="flicker"></div>
   <div id="vignette"></div>
   <div id="blood-drip"></div>
+  <div id="hiding-overlay"></div>
 
   <!-- INTRO SCREEN -->
   <div id="screen-intro" class="screen active">
@@ -19,7 +19,7 @@
       <p class="warning">⚠ Nicht empfohlen für schwache Nerven ⚠</p>
       <img src="cover.svg" alt="Grenni 2.0 Cover" class="cover-img"/>
       <p class="subtitle">— Das Erwachen —</p>
-      <p class="intro-text">Du wachst auf. Kein Licht. Kein Geräusch.<br/>Nur das Pochen deines Herzens... und etwas anderes.</p>
+      <p class="intro-text">Du wachst auf. Kein Licht. Kein Geräusch.<br/>Nur das Pochen deines Herzens... und Schritte.</p>
       <button id="btn-start" class="btn-horror">EINTRETEN</button>
     </div>
     <div class="candle-container">
@@ -37,29 +37,53 @@
     </div>
 
     <div id="game-ui">
-      <div id="status-bar">
-        <div id="heartbeat">
-          <span id="heart-icon">♥</span>
-          <div id="heart-bar-container"><div id="heart-bar"></div></div>
+
+      <!-- GRENNI METER (prominent, top) -->
+      <div id="grenni-meter">
+        <span id="grenni-label">GRENNI</span>
+        <div id="grenni-dots">
+          <span class="gdot" id="gdot-1"></span>
+          <span class="gdot" id="gdot-2"></span>
+          <span class="gdot" id="gdot-3"></span>
+          <span class="gdot" id="gdot-4"></span>
+          <span class="gdot" id="gdot-5"></span>
         </div>
-        <div id="sanity-display">
-          <span>Verstand: </span><span id="sanity-val">100</span>%
-        </div>
-        <div id="chapter-display">
-          <span id="chapter-text">Kapitel I</span>
-        </div>
+        <span id="grenni-status-text">Still…</span>
       </div>
 
+      <!-- STATUS BAR -->
+      <div id="status-bar">
+        <div class="stat-group">
+          <span class="stat-icon" id="heart-icon">♥</span>
+          <div class="bar-container"><div id="heart-bar"></div></div>
+        </div>
+        <div class="stat-group">
+          <span class="stat-icon stamina-icon">⚡</span>
+          <div class="bar-container"><div id="stamina-bar"></div></div>
+        </div>
+        <div class="stat-group">
+          <span class="stat-label">Verstand</span>
+          <span id="sanity-val">100</span><span class="stat-label">%</span>
+        </div>
+        <div id="key-indicator" class="hidden">🗝️ Schlüssel</div>
+        <div id="chapter-display"><span id="chapter-text">Kapitel I</span></div>
+      </div>
+
+      <!-- ROOM NAME -->
+      <div id="room-name"></div>
+
+      <!-- STORY BOX -->
       <div id="story-box">
         <div id="story-text"></div>
         <div id="typing-cursor">█</div>
       </div>
 
+      <!-- ACTION GROUPS -->
       <div id="choices-box"></div>
     </div>
   </div>
 
-  <!-- JUMPSCARE SCREEN -->
+  <!-- JUMPSCARE -->
   <div id="screen-jumpscare" class="screen">
     <div id="jumpscare-img"></div>
   </div>
@@ -78,7 +102,7 @@
   <div id="screen-win" class="screen">
     <div class="win-content">
       <h2 class="win-title">DU HAST ÜBERLEBT</h2>
-      <p class="win-text">...oder hast du das?</p>
+      <p class="win-text">…oder hast du das?</p>
       <div class="win-eye">👁</div>
       <p class="win-subtext">Grenni schläft nie. Grenni wartet.</p>
       <button class="btn-horror" onclick="restartGame()">NOCHMAL SPIELEN</button>
