@@ -62,7 +62,7 @@ const ROOMS = {
     furniture: [
       { type:'bed',      x:60,  y:80,  w:200, h:130, label:'Bett' },
       { type:'wardrobe', x:560, y:60,  w:140, h:160, label:'Schrank' },
-      { type:'table',    x:380, y:380, w:90,  h:60,  label:'Tisch' },
+      { type:'table',    x:380, y:430, w:90,  h:60,  label:'Tisch' },
     ],
     hideSpots: [
       { x:60,  y:80,  w:200, h:130, label:'Unter dem Bett',     spotName:'Bett',     px:160, py:200 },
@@ -71,7 +71,7 @@ const ROOMS = {
     doors: [
       { rect:{x:770, y:240, w:30, h:80}, to:'hallway', spawn:{x:60, y:280}, id:'door_bed_hall', label:'Schlafzimmertür' },
     ],
-    spawnPoint: { x: 400, y: 380 },
+    spawnPoint: { x: 400, y: 300 },
   },
 
   hallway: {
