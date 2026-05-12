@@ -94,6 +94,20 @@ html, body {
   50% { opacity: 1; }
 }
 
+.cover-img {
+  width: min(420px, 90vw);
+  height: auto;
+  border: 1px solid rgba(139,0,0,0.4);
+  box-shadow:
+    0 0 30px rgba(139,0,0,0.5),
+    0 0 80px rgba(80,0,0,0.3);
+  animation: cover-pulse 4s ease-in-out infinite;
+}
+@keyframes cover-pulse {
+  0%,100% { box-shadow: 0 0 30px rgba(139,0,0,0.5), 0 0 80px rgba(80,0,0,0.3); }
+  50% { box-shadow: 0 0 55px rgba(180,0,0,0.7), 0 0 120px rgba(120,0,0,0.4); }
+}
+
 .title-grenni {
   font-size: clamp(3rem, 12vw, 7rem);
   font-weight: 900;

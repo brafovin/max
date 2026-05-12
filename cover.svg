@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <!-- Background radial -->
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#1a0000"/>
+      <stop offset="60%" stop-color="#080000"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Eye glow -->
+    <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff2200" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#aa0000" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Face shadow -->
+    <radialGradient id="faceGrad" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#1a0808"/>
+      <stop offset="70%" stop-color="#0a0303"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Title glow filter -->
+    <filter id="titleGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Soft blur -->
+    <filter id="softBlur">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+
+    <!-- Strong blur -->
+    <filter id="strongBlur">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+
+    <!-- Crack texture -->
+    <filter id="roughen">
+      <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Vignette gradient -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="75%" stop-color="rgba(0,0,0,0.5)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.97)"/>
+    </radialGradient>
+
+    <!-- Blood drip gradient -->
+    <linearGradient id="bloodGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8b0000"/>
+      <stop offset="100%" stop-color="#3a0000"/>
+    </linearGradient>
+
+    <!-- Scanlines pattern -->
+    <pattern id="scanlines" x="0" y="0" width="800" height="4" patternUnits="userSpaceOnUse">
+      <rect width="800" height="2" fill="rgba(0,0,0,0.12)"/>
+    </pattern>
+  </defs>
+
+  <!-- ===== BACKGROUND ===== -->
+  <rect width="800" height="600" fill="#000000"/>
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- Subtle fog layers -->
+  <ellipse cx="400" cy="280" rx="380" ry="220" fill="#1a0000" opacity="0.25" filter="url(#strongBlur)"/>
+  <ellipse cx="400" cy="320" rx="300" ry="160" fill="#2a0000" opacity="0.15" filter="url(#strongBlur)"/>
+
+  <!-- ===== GRENNI FIGURE ===== -->
+
+  <!-- Body / cloak shape -->
+  <path d="M400,520 L220,600 L580,600 Z" fill="#0a0000" opacity="0.8"/>
+  <path d="M400,130 C340,135 290,165 265,220 C240,275 235,340 238,390 C241,440 255,490 270,520 L400,540 L530,520 C545,490 559,440 562,390 C565,340 560,275 535,220 C510,165 460,135 400,130 Z"
+        fill="url(#faceGrad)"/>
+
+  <!-- Neck / collar shadow -->
+  <ellipse cx="400" cy="510" rx="90" ry="30" fill="#050000" opacity="0.8"/>
+
+  <!-- ===== FACE ===== -->
+
+  <!-- Skull shape -->
+  <ellipse cx="400" cy="310" rx="135" ry="155" fill="#0d0404"/>
+  <ellipse cx="400" cy="310" rx="130" ry="150" fill="#130606"/>
+
+  <!-- Forehead veins / cracks -->
+  <path d="M360,195 L350,175 L342,165 M360,195 L355,180" stroke="#3a0000" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M440,192 L448,172 L458,160 M440,192 L445,177" stroke="#3a0000" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M385,188 L380,172 L375,168" stroke="#2a0000" stroke-width="1" fill="none" opacity="0.5"/>
+
+  <!-- Deep eye sockets -->
+  <ellipse cx="348" cy="290" rx="42" ry="52" fill="#040000"/>
+  <ellipse cx="452" cy="290" rx="42" ry="52" fill="#040000"/>
+
+  <!-- Eye glow halo -->
+  <ellipse cx="348" cy="290" rx="55" ry="65" fill="url(#eyeGlow)" opacity="0.35" filter="url(#softBlur)"/>
+  <ellipse cx="452" cy="290" rx="55" ry="65" fill="url(#eyeGlow)" opacity="0.35" filter="url(#softBlur)"/>
+
+  <!-- Eyeball whites -->
+  <ellipse cx="348" cy="290" rx="33" ry="42" fill="#e8e0d8"/>
+  <ellipse cx="452" cy="290" rx="33" ry="42" fill="#e8e0d8"/>
+
+  <!-- Irises - deep red -->
+  <ellipse cx="348" cy="292" rx="22" ry="28" fill="#660000"/>
+  <ellipse cx="452" cy="292" rx="22" ry="28" fill="#660000"/>
+
+  <!-- Pupils -->
+  <ellipse cx="348" cy="292" rx="13" ry="18" fill="#000000"/>
+  <ellipse cx="452" cy="292" rx="13" ry="18" fill="#000000"/>
+
+  <!-- Pupil glints -->
+  <ellipse cx="341" cy="284" rx="5" ry="7" fill="rgba(255,50,0,0.6)"/>
+  <ellipse cx="445" cy="284" rx="5" ry="7" fill="rgba(255,50,0,0.6)"/>
+  <circle cx="355" cy="282" r="2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="459" cy="282" r="2" fill="rgba(255,255,255,0.4)"/>
+
+  <!-- Nose (sunken, skeletal) -->
+  <path d="M395,330 L385,370 L395,378 L405,378 L415,370 L405,330" fill="#090202" stroke="#1a0505" stroke-width="1"/>
+  <ellipse cx="390" cy="374" rx="8" ry="5" fill="#030000"/>
+  <ellipse cx="410" cy="374" rx="8" ry="5" fill="#030000"/>
+
+  <!-- Mouth - wide, cracked grin -->
+  <path d="M310,415 C335,445 365,458 400,460 C435,458 465,445 490,415" stroke="#8b0000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Upper lip -->
+  <path d="M310,415 C335,408 365,405 400,405 C435,405 465,408 490,415" fill="#0a0202"/>
+  <!-- Teeth -->
+  <g fill="#d8d0c4">
+    <rect x="325" y="415" width="22" height="28" rx="2"/>
+    <rect x="352" y="414" width="22" height="32" rx="2"/>
+    <rect x="379" y="413" width="22" height="33" rx="2"/>
+    <rect x="406" y="413" width="22" height="32" rx="2"/>
+    <rect x="433" y="414" width="22" height="28" rx="2"/>
+    <rect x="457" y="415" width="16" height="24" rx="2"/>
+  </g>
+  <!-- Tooth cracks -->
+  <line x1="363" y1="416" x2="360" y2="440" stroke="#8b0000" stroke-width="1" opacity="0.5"/>
+  <line x1="417" y1="415" x2="420" y2="443" stroke="#8b0000" stroke-width="1" opacity="0.5"/>
+  <!-- Gum / blood inside mouth -->
+  <path d="M315,415 C340,450 365,462 400,464 C435,462 460,450 485,415 L490,415 C468,455 438,468 400,470 C362,468 332,455 310,415 Z" fill="#3a0000" opacity="0.7"/>
+
+  <!-- Scar across left cheek -->
+  <path d="M265,330 L310,355 L320,350" stroke="#5a0000" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M268,334 L312,358" stroke="#8b0000" stroke-width="1" fill="none" opacity="0.4"/>
+
+  <!-- Scar across right cheek -->
+  <path d="M535,325 L490,348 L482,344" stroke="#5a0000" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- ===== BLOOD DRIPS (from forehead) ===== -->
+  <!-- Drip 1 -->
+  <path d="M370,170 L368,200 Q367,215 370,225 Q373,232 370,248" stroke="#8b0000" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <ellipse cx="370" cy="252" rx="5" ry="7" fill="#8b0000"/>
+  <!-- Drip 2 -->
+  <path d="M400,165 L399,195 Q398,210 400,222 Q402,230 400,238" stroke="#8b0000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="400" cy="242" rx="4" ry="6" fill="#8b0000"/>
+  <!-- Drip 3 -->
+  <path d="M425,168 L424,188 Q423,200 425,210" stroke="#660000" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="425" cy="214" rx="3" ry="5" fill="#660000"/>
+  <!-- Small blood drops on face -->
+  <circle cx="330" cy="360" r="2.5" fill="#8b0000" opacity="0.6"/>
+  <circle cx="475" cy="355" r="2" fill="#8b0000" opacity="0.5"/>
+  <circle cx="355" cy="460" r="3" fill="#8b0000" opacity="0.7"/>
+  <circle cx="448" cy="455" r="2.5" fill="#8b0000" opacity="0.6"/>
+
+  <!-- ===== HANDS / CLAWS reaching from bottom ===== -->
+  <!-- Left hand -->
+  <g opacity="0.75">
+    <path d="M80,600 L95,540 L100,510 L105,540 L112,490 L118,530 L125,488 L130,528 L138,495 L143,535 L148,560 L160,600 Z" fill="#0d0404"/>
+    <!-- Claw tips -->
+    <path d="M95,540 L90,525 L98,535" fill="#1a0808"/>
+    <path d="M112,490 L108,472 L116,485" fill="#1a0808"/>
+    <path d="M125,488 L122,468 L130,482" fill="#1a0808"/>
+    <path d="M138,495 L136,475 L144,488" fill="#1a0808"/>
+  </g>
+  <!-- Right hand -->
+  <g opacity="0.75">
+    <path d="M720,600 L705,540 L700,510 L695,540 L688,490 L682,530 L675,488 L670,528 L662,495 L657,535 L652,560 L640,600 Z" fill="#0d0404"/>
+    <!-- Claw tips -->
+    <path d="M705,540 L710,525 L702,535" fill="#1a0808"/>
+    <path d="M688,490 L692,472 L684,485" fill="#1a0808"/>
+    <path d="M675,488 L678,468 L670,482" fill="#1a0808"/>
+    <path d="M662,495 L664,475 L656,488" fill="#1a0808"/>
+  </g>
+
+  <!-- ===== TOP BLOOD BAR ===== -->
+  <rect x="0" y="0" width="800" height="8" fill="url(#bloodGrad)"/>
+  <rect x="0" y="0" width="800" height="8" fill="#aa0000" opacity="0.3" filter="url(#softBlur)"/>
+
+  <!-- ===== TITLE ===== -->
+
+  <!-- GRENNI glow layer (behind) -->
+  <text x="400" y="95" text-anchor="middle"
+        font-family="Georgia, serif" font-size="92" font-weight="900"
+        fill="#8b0000" filter="url(#strongBlur)" opacity="0.8"
+        letter-spacing="12">GRENNI</text>
+
+  <!-- GRENNI main text -->
+  <text x="400" y="95" text-anchor="middle"
+        font-family="Georgia, serif" font-size="92" font-weight="900"
+        fill="#ffffff" filter="url(#titleGlow)"
+        letter-spacing="12"
+        style="text-shadow: 0 0 30px #ff0000;">GRENNI</text>
+
+  <!-- Blood drip from title letters -->
+  <path d="M258,97 L257,112 Q256,120 258,128" stroke="#8b0000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="258" cy="132" rx="4" ry="5.5" fill="#8b0000"/>
+
+  <path d="M350,98 L349,118 Q348,128 350,140" stroke="#8b0000" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="350" cy="144" rx="3.5" ry="5" fill="#8b0000"/>
+
+  <path d="M540,97 L539,110 Q538,118 540,125" stroke="#660000" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="540" cy="129" rx="3" ry="4.5" fill="#660000"/>
+
+  <!-- 2.0 subtitle glow -->
+  <text x="400" y="140" text-anchor="middle"
+        font-family="Georgia, serif" font-size="36" font-weight="700"
+        fill="#8b0000" filter="url(#softBlur)" opacity="0.9"
+        letter-spacing="18">2.0</text>
+  <!-- 2.0 main -->
+  <text x="400" y="140" text-anchor="middle"
+        font-family="Georgia, serif" font-size="36" font-weight="700"
+        fill="#cc2200" letter-spacing="18">2.0</text>
+
+  <!-- Subtitle line -->
+  <line x1="160" y1="152" x2="640" y2="152" stroke="#3a0000" stroke-width="1" opacity="0.6"/>
+  <text x="400" y="168" text-anchor="middle"
+        font-family="Georgia, serif" font-size="13" letter-spacing="6"
+        fill="#7a5a4a">— DAS ERWACHEN —</text>
+  <line x1="160" y1="178" x2="640" y2="178" stroke="#3a0000" stroke-width="1" opacity="0.6"/>
+
+  <!-- ===== BOTTOM TEXT ===== -->
+  <text x="400" y="575" text-anchor="middle"
+        font-family="Georgia, serif" font-size="11" letter-spacing="4"
+        fill="#3a2a1a" opacity="0.8">GRENNI SCHLÄFT NICHT</text>
+
+  <!-- ===== VIGNETTE ===== -->
+  <rect width="800" height="600" fill="url(#vignette)"/>
+
+  <!-- Extra corner darkness -->
+  <rect width="800" height="600" fill="url(#scanlines)" opacity="0.4"/>
+
+  <!-- Corner burns -->
+  <rect x="0" y="0" width="200" height="200"
+        fill="url(#vignette)" opacity="0.4"/>
+  <rect x="600" y="0" width="200" height="200"
+        fill="url(#vignette)" opacity="0.4" transform="scale(-1,1) translate(-800,0)"/>
+
+  <!-- Subtle red chromatic aberration on title -->
+  <text x="403" y="95" text-anchor="middle"
+        font-family="Georgia, serif" font-size="92" font-weight="900"
+        fill="rgba(255,0,0,0.08)" letter-spacing="12">GRENNI</text>
+  <text x="397" y="95" text-anchor="middle"
+        font-family="Georgia, serif" font-size="92" font-weight="900"
+        fill="rgba(0,0,255,0.04)" letter-spacing="12">GRENNI</text>
+
+</svg>
