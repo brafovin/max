@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GRENNI 2.0 — Das Erwachen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- FLICKER OVERLAY -->
+  <div id="flicker"></div>
+  <div id="vignette"></div>
+  <div id="blood-drip"></div>
+
+  <!-- INTRO SCREEN -->
+  <div id="screen-intro" class="screen active">
+    <div class="intro-content">
+      <p class="warning">⚠ Nicht empfohlen für schwache Nerven ⚠</p>
+      <h1 class="title-grenni">GRENNI<br/><span>2.0</span></h1>
+      <p class="subtitle">— Das Erwachen —</p>
+      <p class="intro-text">Du wachst auf. Kein Licht. Kein Geräusch.<br/>Nur das Pochen deines Herzens... und etwas anderes.</p>
+      <button id="btn-start" class="btn-horror">EINTRETEN</button>
+    </div>
+    <div class="candle-container">
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+    </div>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div id="screen-game" class="screen">
+    <div id="scene-image-container">
+      <div id="scene-image"></div>
+      <div id="scene-overlay"></div>
+    </div>
+
+    <div id="game-ui">
+      <div id="status-bar">
+        <div id="heartbeat">
+          <span id="heart-icon">♥</span>
+          <div id="heart-bar-container"><div id="heart-bar"></div></div>
+        </div>
+        <div id="sanity-display">
+          <span>Verstand: </span><span id="sanity-val">100</span>%
+        </div>
+        <div id="chapter-display">
+          <span id="chapter-text">Kapitel I</span>
+        </div>
+      </div>
+
+      <div id="story-box">
+        <div id="story-text"></div>
+        <div id="typing-cursor">█</div>
+      </div>
+
+      <div id="choices-box"></div>
+    </div>
+  </div>
+
+  <!-- JUMPSCARE SCREEN -->
+  <div id="screen-jumpscare" class="screen">
+    <div id="jumpscare-img"></div>
+  </div>
+
+  <!-- DEATH SCREEN -->
+  <div id="screen-death" class="screen">
+    <div class="death-content">
+      <h2 class="death-title">DU BIST GESTORBEN</h2>
+      <p id="death-msg"></p>
+      <div class="death-eye">👁</div>
+      <button class="btn-horror" onclick="restartGame()">VON VORNE BEGINNEN</button>
+    </div>
+  </div>
+
+  <!-- WIN SCREEN -->
+  <div id="screen-win" class="screen">
+    <div class="win-content">
+      <h2 class="win-title">DU HAST ÜBERLEBT</h2>
+      <p class="win-text">...oder hast du das?</p>
+      <div class="win-eye">👁</div>
+      <p class="win-subtext">Grenni schläft nie. Grenni wartet.</p>
+      <button class="btn-horror" onclick="restartGame()">NOCHMAL SPIELEN</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
