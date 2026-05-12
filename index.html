@@ -11,7 +11,6 @@
   <div id="flicker"></div>
   <div id="vignette"></div>
   <div id="blood-drip"></div>
-  <div id="hiding-overlay"></div>
 
   <!-- INTRO SCREEN -->
   <div id="screen-intro" class="screen active">
@@ -19,7 +18,13 @@
       <p class="warning">⚠ Nicht empfohlen für schwache Nerven ⚠</p>
       <img src="cover.svg" alt="Grenni 2.0 Cover" class="cover-img"/>
       <p class="subtitle">— Das Erwachen —</p>
-      <p class="intro-text">Du wachst auf. Kein Licht. Kein Geräusch.<br/>Nur das Pochen deines Herzens... und Schritte.</p>
+      <div class="controls-info">
+        <div><kbd>W A S D</kbd> oder <kbd>↑ ↓ ← →</kbd> — Bewegen</div>
+        <div><kbd>SHIFT</kbd> halten — Rennen (laut, kostet Ausdauer)</div>
+        <div><kbd>E</kbd> oder <kbd>LEERTASTE</kbd> — Interagieren / Verstecken</div>
+        <div><kbd>L</kbd> — Tür abschließen (mit Schlüssel)</div>
+      </div>
+      <p class="intro-text">Finde den Schlüssel. Schließ Türen ab. Versteck dich. Flieh.</p>
       <button id="btn-start" class="btn-horror">EINTRETEN</button>
     </div>
     <div class="candle-container">
@@ -31,14 +36,10 @@
 
   <!-- GAME SCREEN -->
   <div id="screen-game" class="screen">
-    <div id="scene-image-container">
-      <div id="scene-image"></div>
-      <div id="scene-overlay"></div>
-    </div>
+    <canvas id="gameCanvas" width="800" height="560"></canvas>
 
-    <div id="game-ui">
-
-      <!-- GRENNI METER (prominent, top) -->
+    <div id="game-hud">
+      <!-- TOP: Grenni meter -->
       <div id="grenni-meter">
         <span id="grenni-label">GRENNI</span>
         <div id="grenni-dots">
@@ -51,7 +52,7 @@
         <span id="grenni-status-text">Still…</span>
       </div>
 
-      <!-- STATUS BAR -->
+      <!-- BOTTOM: stats -->
       <div id="status-bar">
         <div class="stat-group">
           <span class="stat-icon" id="heart-icon">♥</span>
@@ -65,21 +66,17 @@
           <span class="stat-label">Verstand</span>
           <span id="sanity-val">100</span><span class="stat-label">%</span>
         </div>
-        <div id="key-indicator" class="hidden">🗝️ Schlüssel</div>
-        <div id="chapter-display"><span id="chapter-text">Kapitel I</span></div>
+        <div id="key-indicator" class="hidden">🗝️</div>
+        <div id="room-name-display"></div>
       </div>
 
-      <!-- ROOM NAME -->
-      <div id="room-name"></div>
-
-      <!-- STORY BOX -->
-      <div id="story-box">
-        <div id="story-text"></div>
-        <div id="typing-cursor">█</div>
+      <!-- Interact prompt (bottom center) -->
+      <div id="interact-prompt" class="hidden">
+        <kbd id="prompt-key">E</kbd> <span id="prompt-text">Interagieren</span>
       </div>
 
-      <!-- ACTION GROUPS -->
-      <div id="choices-box"></div>
+      <!-- Story text (transient, top-center) -->
+      <div id="story-overlay" class="hidden"></div>
     </div>
   </div>
 
